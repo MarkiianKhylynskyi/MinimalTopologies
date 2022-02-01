@@ -1,0 +1,317 @@
+ %%%%%%%%%%%%%%%%%%%%%%  Стильовий файл %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%% для статті у журналі %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%% ``Вісник Львівського університету. Серія механіко-математична'' %%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \NeedsTeXFormat{LaTeX2e}
+ \ProvidesPackage{visnyk_g}[2013/13/11 (c) O. Buhrii and Yu. Golovaty & O. Gutik]
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage{latexsym,amssymb} % Додаткові математичні шрифти
+ \usepackage{amsfonts,amsmath} % Додаткові математичні шрифти
+ \usepackage{graphicx}         % Обробка малюнків
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \hoffset=0cm           %+2.5cm -- відступ від лівого краю
+ \voffset=0.1cm         %+2.5cm -- відступ зверху
+ \oddsidemargin=0cm     %ліве поле (непарна сторінка)
+ \evensidemargin=0cm    %ліве поле (парна сторінка)
+ \topmargin=0cm         %верхнє поле
+ \headheight=1cm        %висота верхнього колонтитулу
+ \footskip=1cm          %висота нижнього колонтитулу
+ \headsep=9pt           %відступ від колонтитулу до тексту
+ \textwidth=13.5cm      %ширина сторінки
+ \textheight=19.2cm     %висота сторінки
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \parindent=0.75cm      %абзацний відступ
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{LOADING PAGE LAYOUT, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \@twosidetrue \@mparswitchtrue
+ \def\ps@headings{%
+       \let\@oddfoot\@empty%
+       \let\@evenfoot\@empty
+       \def\@evenhead{\vbox{\small\normalfont
+         \hbox to \textwidth{\strut{\large\bfseries\thepage}\hfil\leftmark}%\slshape
+          \vskip\p@ \hrule \vskip -1.4\p@}}%
+       \def\@oddhead{\vbox{\small\normalfont
+         \hbox to \textwidth{{\rightmark}\hfil{\large\bfseries\thepage}\strut}%\slshape
+         \vskip\p@ \hrule \vskip -1.4\p@}}%
+       \let\@mkboth\markboth}
+ \ps@headings
+ \evensidemargin
+ \oddsidemargin
+ \flushbottom
+ \righthyphenmin\tw@
+ \emergencystretch 15\p@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{SECTIONING, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\x@paragraph#1{\par{\normalfont\bfseries#1.}\space\ignorespaces}
+ \def\y@paragraph#1{\par\refstepcounter{paragraph}%
+   {\normalfont\bfseries\theparagraph.\if!#1!\else\space#1.\fi}\space
+   \ignorespaces}
+ \def\paragraph{\@ifstar{\x@paragraph}{\y@paragraph}}
+ \def\theparagraph{\arabic{paragraph}}
+ %
+ \def\x@subparagraph#1{\par{\normalfont\itshape#1.}\space\ignorespaces}
+ \def\y@subparagraph#1{\par\refstepcounter{subparagraph}%
+   {\normalfont\itshape\theparagraph.\thesubparagraph.\if!#1!\else\space#1.\fi}\space
+   \ignorespaces}
+ \def\subparagraph{\@ifstar{\x@subparagraph}{\y@subparagraph}}
+ \def\thesubparagraph{\arabic{subparagraph}}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{THEOREM ENVIRONMENTS, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newtheorem{theorem}{Теорема}
+ \renewcommand{\thetheorem}{\arabic{theorem}}
+ \newtheorem{engtheorem}{Theorem}
+ \renewcommand{\theengtheorem}{\arabic{engtheorem}}
+ %
+ \newtheorem{lemma}{Лема}
+ \renewcommand{\thelemma}{\arabic{lemma}}
+ \newtheorem{englemma}{Lemma}
+ \renewcommand{\theenglemma}{\arabic{englemma}}
+ %
+ \newtheorem{corollary}{Наслідок}
+ \renewcommand{\thecorollary}{\arabic{corollary}}
+ \newtheorem{engcorollary}{Corollary}
+ \renewcommand{\theengcorollary}{\arabic{engcorollary}}
+ %
+ \newtheorem{definition}{Означення}
+ \renewcommand{\thedefinition}{\arabic{definition}}
+ \newtheorem{engdefinition}{Definition}
+ \renewcommand{\theengdefinition}{\arabic{engdefinition}}
+ %
+ \newtheorem{proposition}{Твердження}
+ \renewcommand{\theproposition}{\arabic{proposition}}
+ \newtheorem{engproposition}{Proposition}
+ \renewcommand{\theengproposition}{\arabic{engproposition}}
+ %
+ \newtheorem{problem}{Проблема}
+ \renewcommand{\theproblem}{\arabic{problem}}
+ \newtheorem{engproblem}{Problem}
+ \renewcommand{\theengproblem}{\arabic{engproblem}}
+ %
+ \newtheorem{hypothesis}{Гіпотеза}
+ \renewcommand{\thehypothesis}{\arabic{hypothesis}}
+ \newtheorem{enghypothesis}{Hypothesis}
+ \renewcommand{\theenghypothesis}{\arabic{enghypothesis}}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \theoremstyle{definition}
+ \newtheorem{example}{Приклад}
+ \renewcommand{\theexample}{\arabic{example}}
+ \newtheorem{engexample}{Example}
+ \renewcommand{\theengexample}{\arabic{engexample}}
+ %%%%%%%%%%%%%%%%%
+ \theoremstyle{remark}
+ \newtheorem{remark}{Зауваження}
+ \renewcommand{\theremark}{\arabic{remark}}
+ \newtheorem{engremark}{\it Remark}
+ \renewcommand{\theengremark}{\arabic{engremark}}
+ %
+ \newtheorem{case}{\it Випадок}
+ \renewcommand{\thecase}{\arabic{case}}
+ \newtheorem{engcase}{\it Case}
+ \renewcommand{\theengcase}{\arabic{engcase}}
+ %%%%%%%%%%%%%%%%%
+ \newenvironment{ukrproof}[1][]%
+                {\par\noindent {\slshape Доведення#1. }}{\par\medskip}
+ \newenvironment{engproof}[1][]%
+                {\par\noindent {\slshape Proof#1. }}{\par\medskip}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{TITLE AND THE LAST PAGE MACROS, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\udk#1{\gdef\mm@udc{УДК  #1}}
+ \def\kornazva#1{\gdef\ko@nazva{#1}}
+ \def\pravo#1{\gdef\mm@copyright{#1}}
+ \def\msc#1{\gdef\mm@msc{#1}}                                                %% Додано Гутіком 02.02.2017
+ \def\kolontytulname#1{\gdef\ko@ontytulname{#1}}
+ %%%%%%%%%%%%%%%%%
+ \def\ukrtitle#1{\gdef\uk@title{#1}}
+ \def\ukrauthor#1{\gdef\uk@author{#1}}
+ \def\ukradres#1{\gdef\uk@adres{#1}}
+ \def\ukrabstract#1{\gdef\uk@abstract{#1}}
+ \def\ukrwords#1{\gdef\uk@words{#1}}
+ \newcommand{\ukrslova}{Ключові слова: }
+ %%%%%%%%%%%%%%%%%
+ \def\engtitle#1{\gdef\en@title{#1}}
+ \def\engauthor#1{\gdef\en@author{#1}}
+ \def\engadres#1{\gdef\en@adres{#1}}
+ \def\engabstract#1{\gdef\en@abstract{#1}}
+ \def\engwords#1{\gdef\en@words{#1}}
+ \newcommand{\engslova}{Key words: }
+ %%%%%%%%%%%%%%%%%
+ \def\rustitle#1{\gdef\ru@title{#1}}
+ \def\rusauthor#1{\gdef\ru@author{#1}}
+ \def\rusadres#1{\gdef\ru@adres{#1}}
+ \def\rusabstract#1{\gdef\ru@abstract{#1}}
+ \def\ruswords#1{\gdef\ru@words{#1}}
+ \newcommand{\russlova}{Ключевые слова: }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{MARGINE MACROS, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\kolontytulfirst{
+ \newpage
+   \null
+ \vglue-41pt
+ \thispagestyle{empty}
+ \vbox{%
+  \centerline{\itshape%
+  ISSN 2078-3744. Вісник Львів. ун-ту. Серія мех.-мат. \rik.
+  Випуск \vypusk. С. \thepage--\ostannia }%
+  \vskip1pt%
+  \centerline{\itshape%
+  Visnyk of the Lviv Univ. Series Mech. Math. \rik.
+  Issue \vypusk. P. \thepage--\ostannia }%
+  \vskip3pt%
+  {\hrule height 0.3pt}%
+ \vspace{30pt}
+ \noindent \mm@udc
+ \vspace{6pt}
+      }%end_vbox
+      }%end_kolontytulfirst
+ %%%%%%%%%%%%%%%%%
+ \def\kolontytullast{
+ \markboth{\parbox[b]{12cm}{\hfill {\bfseries \ko@ontytulname} \vskip -0.7\p@
+  \hfill {\slshape ISSN 2078-3744.
+                   Вісник Львів. ун-ту. Серія мех.-мат. \rik. Випуск \vypusk} }}{
+           \parbox[b]{12cm}{\ko@nazva \vskip -0.7\p@
+         {\slshape ISSN 2078-3744.
+                   Вісник Львів. ун-ту. Серія мех.-мат. \rik. Випуск \vypusk} }}
+\footnote {\kern-12pt \emph{2010 Mathematics Subject Classification}: \mm@msc} %% Додано Гутіком 02.02.2017
+ \footnote {\kern-12pt\copyright\ \mm@copyright, \rik}
+                    } %end_kolontytullast
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{TITLES MACROS, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\makeukrtitle{
+ \begin{center}
+    \large \bfseries \noindent \uk@title
+ \end{center}
+ \vspace{23pt}
+ \begin{center}
+    \large \bfseries \noindent \uk@author
+ \end{center}
+ \vspace{2pt}
+ \begin{center}
+    \small \itshape \noindent \uk@adres
+ \end{center}
+ \vspace{10pt}
+  \begin{quote}
+   \small \hspace{0.3cm} \uk@abstract
+  \end{quote}
+ \vspace{0pt}
+  \begin{quote}
+   \small \hspace{0.4cm} {\itshape \ukrslova} \uk@words
+  \end{quote}
+ \vspace{13pt}
+ }%end_makeukrtitle
+ %%%%%%%%%%%%%%%%%
+ \def\makeengtitle{
+ \begin{center}
+    \large \bfseries \noindent \en@title
+ \end{center}
+ \vspace{23pt}
+ \begin{center}
+    \large \bfseries \noindent \en@author
+ \end{center}
+ \vspace{2pt}
+ \begin{center}
+    \small \itshape \noindent \en@adres
+ \end{center}
+ \vspace{10pt}
+  \begin{quote}
+   \small \hspace{0.3cm} \en@abstract
+  \end{quote}
+ \vspace{0pt}
+  \begin{quote}
+   \small \hspace{0.4cm} {\itshape \engslova} \en@words
+  \end{quote}
+ \vspace{13pt}
+ }%end_makeengtitle
+ %%%%%%%%%%%%%%%%%
+ \def\makerustitle{
+ \begin{center}
+    \large \bfseries \noindent \ru@title
+ \end{center}
+ \vspace{23pt}
+ \begin{center}
+    \large \bfseries \noindent \ru@author
+ \end{center}
+ \vspace{2pt}
+ \begin{center}
+    \small \itshape \noindent \ru@adres
+ \end{center}
+ \vspace{10pt}
+  \begin{quote}
+   \small \hspace{0.3cm} \ru@abstract
+  \end{quote}
+ \vspace{0pt}
+  \begin{quote}
+   \small \hspace{0.4cm} {\itshape \russlova} \ru@words
+  \end{quote}
+ \vspace{13pt}
+ }%end_makerustitle
+ %
+ \addtolength{\skip\footins}{2mm}
+ \renewcommand{\@makefnmark}{}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{BIBLIOGRAPHY, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\thebibliography#1{
+ \par
+ \medskip
+  \settowidth\@tempdima{\small\normalfont #1 \enskip}%
+  \addvspace\medskipamount \small \frenchspacing \parindent\z@
+  \setcounter{enumiv}{0}%
+  \def\theenumiv{\arabic{enumiv}}%
+  \def\bibitem##1{\refstepcounter{enumiv}%
+    \immediate\write\@auxout{\string\bibcite{##1}{\the\c@enumiv}}\par
+    \makebox[\@tempdima][l]{\theenumiv.}\hangindent\@tempdima \ignorespaces}%
+ }%end_thebibliography
+ %
+ \def\endthebibliography{\par \vskip\medskipamount \relax  \vspace{20pt}  }
+ %
+ \@ifundefined{textnumero}{%
+ \DeclareRobustCommand{\textnumero}{\textnormal{N$^{\mathrm o}$}}}{}
+ %
+ \DeclareRobustCommand{\No}{\ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{GENERAL INFORMATION, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\nadijshlo#1{\gdef\na@ijshlo{#1}}
+ \def\ostatoch#1{\gdef\os@tatoch{#1}}
+ \def\dodruku#1{\gdef\do@ruku{#1}}
+ \def\nadijshloprint{
+   \vspace{-0.4cm} \hspace{5.2cm}
+   \textit{Стаття: надійшла до редколегії \na@ijshlo }
+   \par }%end_nadijshloprint
+ \def\ostatochprint{
+   \hspace{6.9cm}
+   \textit{доопрацьована \os@tatoch }
+   \par }%end_ostatochprint
+ \def\dodrukuprint{
+   \hspace{6.9cm}
+   \textit{прийнята до друку \do@ruku }
+   \par } %end_dodrukuprint
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{USEFUL COMMANDS, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \renewcommand{\leq}{\leqslant}
+ \renewcommand{\geq}{\geqslant}
+ \def\ukrlit{\vspace{0.3cm}\centerline{\textsc{Список використаної література}}}%Список використаної літератури}}}
+ \def\englit{\vspace{0.3cm}\centerline{\textsc{References}}}
+ \def\bibslash{/\kern-1pt /\,}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \message{... finished.}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \endinput
