@@ -147,8 +147,9 @@ Let $\lambda$ be a nonempty set. By $\B$ we denote the set $\lambda\times\lambda
 
 and $(a,b)\cdot 0=0\cdot(a,b)=0\cdot 0=0$, for each $a,b,c,d\in\ab$. The semigroup $\B$ is called the \emph{semigroup of $\lambda\times\lambda$-matrix units}. The semitopological and topological semigroup of matrix units was investigated in \cite{Pavlyk}.
 
-A \emph{directed graph} (or just \emph{digraph}) $D$ consists of a nonempty set $V(D)$ of elements called \emph{vertices} and a set $A(D)$ of ordered pairs of vertices called \emph{arcs}. We call $V(D)$ the \emph{vertex set} and $A(D)$ the \emph{arc set} of $D$. The \emph{order} (\emph{size}) of $D$ is the cardinality of the vertex (arc) set of $D$. For an arc $(u,v)$ the first vertex $u$ is its \emph{tail} and the second vertex $v$ is its \emph{head}. If a tail and a head of arc coincide, then this arc is called a \emph{loop}. The head and tail of an arc are its \emph{end-vertices}. A vertex $v$ is a \emph{source}(\emph{source}) if $v$ is not a head(tail) for any arc. A digraph $H$ is a \emph{subdigraph} of a digraph $D$ if $V(H)\subseteq V(D)$, $A(H)\subseteq A(D)$ and every arc in $A(H)$ has both end-vertices in $V(H)$. A \emph{walk} in $D$ is an alternating sequence $W=x_{1}a_{1}x_{2}a_{2}x_{3}\ldots x_{k-1}a_{k-1}x_{k}$ of vertices $x_{i}$ and arcs $a_{j}$ from $D$ such that the tail of $a_{i}$ is $x_{i}$ and the head of $a_{i}$ is $x_{i+1}$ for every $i=1,2,\ldots,k-1$. The \emph{length} of a walk is the
-number of its arcs. When the arcs of $W$ are defined from the context or simply unimportant, we will denote $W$ by $x_{1}x_{2}\ldots x_{k}$. If the vertices of $W$ are distinct, $W$ is a \emph{path}. If the vertices $x_{1},x_{2},\ldots,x_{k-1}$ are distinct and $x_{1}=x_{k}$, $W$ is a \emph{cycle}.
+A \emph{directed graph} (or just \emph{digraph}) $D$ consists of a nonempty set $V(D)$ of elements called \emph{vertices} and a set $A(D)$ of ordered pairs of vertices called \emph{arcs}. We call $V(D)$ the \emph{vertex set} and $A(D)$ the \emph{arc set} of $D$. The \emph{order} (\emph{size}) of $D$ is the cardinality of the vertex (arc) set of $D$. For an arc $(u,v)$ the first vertex $u$ is its \emph{tail} and the second vertex $v$ is its \emph{head}. If a tail and a head of arc coincide, then this arc is called a \emph{loop}. The head and tail of an arc are its \emph{end-vertices}. A vertex $v$ is a \emph{source}(\emph{source}) if $v$ is not a head(tail) for any arc. A digraph $H$ is a \emph{subdigraph} of a digraph $D$ if $V(H)\subseteq V(D)$, $A(H)\subseteq A(D)$ and every arc in $A(H)$ has both end-vertices in $V(H)$. If every arc of $A(D)$ with both end-vertices in $V(H)$ is in $A(H)$, we say that $H$ is induced by $X=V(H)$ and call $H$ an induced subdigraph of $D$.
+
+A \emph{walk} in $D$ is an alternating sequence $W=x_{1}a_{1}x_{2}a_{2}x_{3}\ldots x_{k-1}a_{k-1}x_{k}$ of vertices $x_{i}$ and arcs $a_{j}$ from $D$ such that the tail of $a_{i}$ is $x_{i}$ and the head of $a_{i}$ is $x_{i+1}$ for every $i=1,2,\ldots,k-1$. The \emph{length} of a walk is the number of its arcs. When the arcs of $W$ are defined from the context or simply unimportant, we will denote $W$ by $x_{1}x_{2}\ldots x_{k}$. If the vertices of $W$ are distinct, $W$ is a \emph{path}. If the vertices $x_{1},x_{2},\ldots,x_{k-1}$ are distinct and $x_{1}=x_{k}$, $W$ is a \emph{cycle}. A walk (path, cycle) $W$ is a \emph{Hamilton} (or \emph{hamiltonian}) walk (path, cycle) if $W$ contains all vertices of $D$.
 
 Let $\{D_{i}\}_{i\in I}$ be a family of digraphs. The digraph $(\bigsqcup\limits_{i\in I}V(D_{i}),\bigsqcup\limits_{i\in I}A(D_{i}))$ is called \emph{disjoint union} of this family and denoted by $\bigoplus\limits_{i\in I}D_{i}$. If $D$ is a digraph and $\mathcal{R}$ is an equivalence relation on $V(D)$. Then the \emph{quotient digraph} has vertex set $V/\mathcal{R}$ and arc set $\{([a]_{\mathcal{R}},[b]_{\mathcal{R}})\mid (a,b)\in A(D)\}$.
 
@@ -159,8 +160,6 @@ If $(\B,\tau)$ is a semitopological semigroup, then any nonzero element of $\B$ 
 \begin{englemma}\label{lemma1}
 Let $(\B,\tau)$ be a topological semigroup and $A$ be a closed subset $A$ of $(\B,\tau)$ which doesn't contain $0$. Then any subset of $A$ is closed.
 \end{englemma}
-
-Thus a semigroup topology on $\B$ is determined by closed sets that don't contain $0$.
 
 For $A\subseteq\B$ and $\alpha,\beta\in\ab$ we denote
 \begin{align*}
@@ -184,7 +183,7 @@ and
 \end{equation*}
 are closed in the topological space $(\B,\tau)$.
 
-($\Leftarrow$) Since every nonzero point of $\B$ is isolated, we need check the continuity of operation only in the cases of $(\alpha,\beta)\cdot 0$ and $0\cdot(\alpha,\beta)$. Let $U(0)$ be a neighborhood of $0$. Denote by $A$ the closed set $\B\setminus U(0)$. Then the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed. Denote by $U_{1}(0)$ and $U_{2}(0)$ the sets $\B\setminus {}_\alpha A_\beta$ and $\B\setminus {}_\beta^\alpha A$, respectively. Therefore $\{(\alpha,\beta)\}\cdot U_{1}(0)\subseteq U(0)$ and $U_{2}(0)\cdot\{(\alpha,\beta)\}\subseteq U(0)$.
+($\Leftarrow$) Since every nonzero point of $\B$ is isolated, we need check the continuity of operation only in the cases of $(\alpha,\beta)\cdot 0$ and $0\cdot(\alpha,\beta)$. Let $U$ be a neighborhood of $0$. Denote by $A$ the closed set $\B\setminus U$. Then the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed. Denote by $V$ and $W$ the neighborhoods of zero $\B\setminus {}_\alpha A_\beta$ and $\B\setminus {}_\beta^\alpha A$, respectively. Therefore $\{(\alpha,\beta)\}\cdot V\subseteq U$ and $W\cdot\{(\alpha,\beta)\}\subseteq U$.
 \end{engproof}
 
 Lemma \ref{lemma2} implies the following corollary.
@@ -199,7 +198,7 @@ Let $A,B\subseteq\B$ and $(\alpha,\beta)\in\B$. The element $(\alpha,\beta)\noti
 \begin{engproof}
 ($\Rightarrow$) Suppose that there exists $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$ then $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Therefore $(\alpha,\gamma)\cdot (\gamma,\beta)=(\alpha,\beta)\in A\cdot B$, a contradiction.
 
-($\Leftarrow$) Suppose that $(\alpha,\beta)\in A\cdot B$. Then there exist $\gamma\in\ab$ such that $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Hence $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$, a contradiction.
+($\Leftarrow$) Suppose that $\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)=\varnothing$ and $(\alpha,\beta)\in A\cdot B$. Then there exist $\gamma\in\ab$ such that $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Hence $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$, a contradiction.
 \end{engproof}
 
 We will call elements of the set $\{A\times B\mid A,B\subseteq\B\}$ by rectangles.
@@ -277,7 +276,7 @@ Let $A$ and $B$ be sets. We will denote
     &\qquad A\subseteq^{*}B \mbox{~if a set~} A\setminus B \mbox{~is finite~}.\\
 \end{align*}
 
-Note that there are semigroup topologies such that not generated by compositional families, for example a topology generated by the base $\{\{(\alpha,\alpha)\mid\alpha\in A\}\cup\{0\}\mid A=^{*}\ab\}\cup\{\{(\alpha,\beta)\}\mid\alpha,\beta\in \ab\}$.
+Note that there are semigroup topologies such that not generated by compositional families. For example, a topology generated by the base $\{\{(\alpha,\alpha)\mid\alpha\in A\}\cup\{0\}\mid A=^{*}\ab\}\cup\{\{(\alpha,\beta)\}\mid\alpha,\beta\in \ab\}$.
 
 Observe that a semigroup topology can be generated by distinct compositional families. Let $\tau$ be a semigroup topology generated by some compositional family on $\B$. By $\C(\tau)$ denote the set of all compositional families such that generate the topology $\tau$.
 
@@ -346,24 +345,28 @@ node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
 
 \end{engexample}
 
-\begin{engdefinition}
-The basis step is a graph $\mathcal{U}_{0}$ with two vertices and one arc. For the inductive step, assuming $\mathcal{U}_{i}$ is defined. Construct a graph $v_{i+1}$ as follows: for any arc $(a,b)$ of $\mathcal{U}_{i}$ that is not an arc of $\mathcal{U}_{i-1}$, attach a new vertex $v_{a,b}$ and arcs $(a,v_{a,b})$, $(v_{a,b},b)$.
+\begin{engexample}
+Let $\mathbb{Z}[\frac{1}{2}]$ be the set of all dyadic rationals in $[0,1]$. The digraph $\mathcal{U}$ with $V(\mathcal{U})=\mathbb{Z}[\frac{1}{2}]$ and
+\begin{equation*}
+  A(\mathcal{U})\{(v,u)\mid v=\frac{k}{2^n} \mbox{~and~} u=v+\frac{1}{m} \mbox{~for some~} m\geq n\}
+\end{equation*}
+is compositional. Indeed, if $(u,v)$ is an arc of $\mathcal{U}$, then $(u,\frac{u+v}{2})$ and $(\frac{u+v}{2},v)$ are arcs of $\mathcal{U}$. 
 
-Now define the universal graph $\mathcal{U}$ to be the union of the nested sequence of graphs $\mathcal{U}_{0}\subset\mathcal{U}_{1}\subset \mathcal{U}_{2}\subset \mathcal{U}_{3}\subset \ldots$.
+By $\mathcal{U}_i$ denoted the subdigraph induced by $V(\mathcal{U}_i)=\{u\in\mathbb{Z}[\frac{1}{2}]\mid u=\frac{k}{2^n}\mbox{~for~} n\leq i\}$.
 \newline
 \begin{tikzpicture}[
 node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
 ]
 
-    \node[node] (1) at (0, 0) {0};
-    \node[node] (2) at (8, 0) {0};
-    \node[node] (3) at (4, 1) {1};
-    \node[node] (4) at (2, 2) {2};
-    \node[node] (5) at (6, 2) {2};
-    \node[node] (6) at (1, 3) {3};
-    \node[node] (7) at (3, 3) {3};
-    \node[node] (8) at (5, 3) {3};
-    \node[node] (9) at (7, 3) {3};
+    \node[node] (1) at (0, 0) {$0$};
+    \node[node] (2) at (8, 0) {$1$};
+    \node[node] (3) at (4, 1) {$\frac{1}{2}$};
+    \node[node] (4) at (2, 2) {$\frac{1}{4}$};
+    \node[node] (5) at (6, 2) {$\frac{3}{4}$};
+    \node[node] (6) at (1, 3) {$\frac{1}{8}$};
+    \node[node] (7) at (3, 3) {$\frac{3}{8}$};
+    \node[node] (8) at (5, 3) {$\frac{5}{8}$};
+    \node[node] (9) at (7, 3) {$\frac{7}{8}$};
 
     \draw[->] (1) to (2);
     \draw[->] (1) to (3);
@@ -383,13 +386,13 @@ node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
 
 
 \end{tikzpicture}
-\end{engdefinition}
+\end{engexample}
 
 \begin{engproposition}\label{path}
-There exists a hamiltonian path in any $\mathcal{U}_{i}$.
+There exists a hamiltonian path in $\mathcal{U}_{i}$ for each $i\in\mathbb{N}$.
 \end{engproposition}
 \begin{engproof}
-We will prove by induction that, elements of $A(\mathcal{U}_{i})\setminus A(\mathcal{U}_{i-1})$ form such path. For $\mathcal{U}_{1}$ statement is true. Suppose that statement is true for $\mathcal{U}_{i}$. Then elements of $A(\mathcal{U}_{i})\setminus A(\mathcal{U}_{i-1})$ form a path $a_{1}a_{2}\ldots a_{n}$ in $\mathcal{U}_{i}$. For each $a_{i}$ and $a_{i+1}$ there exist arcs $(a_{i},b_{i})$ and $(b_{i},a_{i+1})$ in the $A(\mathcal{U}_{i})\setminus A(\mathcal{U}_{i-1})$. Therefore, elements of $A(\mathcal{U}_{i+1})\setminus A(\mathcal{U}_{i})$ form a path $a_{1}b_{1}a_{2}\ldots a_{n-1}b_{n-1}a_{n}$ where $b_{j}\in V(\mathcal{U}_{i+1})\setminus V(\mathcal{U}_{i})$.
+Consider the sequence of vertices $\frac{1}{2^i},\frac{2}{2^i},\frac{3}{2^i},\ldots,\frac{2^i-1}{2^i},\frac{2^i}{2^i}$. Observe that $v_{i+1}-v_i=\frac{1}{2^i}$. Thus $(v_i,v_{i+1})$ is an arc of $\mathcal{U}_{i}$ and hence this sequence is a path. Since the path contains all vertices of $\mathcal{U}_{i}$, this is a hamiltonian path.
 \end{engproof}
 
 Proposition \ref{path} implies the following corollary.
@@ -406,23 +409,23 @@ Let $\mathcal{R}$ be an equivalence relation on $\bigsqcup\limits_{i\in I}V_{\al
 \end{engproof}
 
 \begin{englemma}\label{lemma6}
-Let $D$ be a digraph and $(a,b)$ be some arc of $D$. Then there exists an equivalence relation $R$ on $V(\mathcal{U})$ such that $D/\mathcal{R}$ is isomorphic to a subdigraph of $D$ which contains $(a,b)$.
+Let $D$ be a digraph and $(a,b)$ be a arc of $D$. Then there exists an equivalence relation $\mathcal{R}$ on $V(\mathcal{U})$ such that $D/\mathcal{R}$ is isomorphic to a subdigraph of $D$ which contains $(a,b)$.
 \end{englemma}
 \begin{engproof}
-Construct by induction equivalence classes of the relation $\mathcal{R}$. For each $v\in V(D)$ define $[v]=\varnothing$. Let $(u,w)$ is an arc of $\mathcal{U}_{0}$. Add vertex $u$ to $[a]$ and vertex $w$ to $[b]$. Suppose that all vertexes of $\mathcal{U}_{i}$ are added to equivalence classes. Take arbitrary vertex $v\in V(\mathcal{U}_{i+1})\setminus V(\mathcal{U}_{i})$. There exist two arcs $(u,v),(v,w)\in A(\mathcal{U}_{i+1})\setminus A(\mathcal{U}_{i})$ and $u\in [m]$, $w\in [n]$. Since the digraph $D$ is compositional, there exist arcs $(m,k),(k,n)\in A(D)$. Then add the vertex $v$ to $[k]$.
+Construct by induction equivalence classes of the relation $\mathcal{R}$. For each $v\in V(D)$ define $[v]=\varnothing$. Let $(u,w)$ is an arc of $\mathcal{U}_{0}$. Add vertex $u$ to $[a]$ and vertex $w$ to $[b]$. Suppose that all vertexes of $\mathcal{U}_{i}$ are added to equivalence classes. Take arbitrary vertex $v\in V(\mathcal{U}_{i+1})\setminus V(\mathcal{U}_{i})$. There exist two arcs $(u,v),(v,w)\in A(\mathcal{U}_{i+1})\setminus A(\mathcal{U}_{i})$ and $u\in [x]$, $w\in [y]$. Since the digraph $D$ is compositional, there exist arcs $(x,z),(z,y)\in A(D)$. Then add the vertex $v$ to $[z]$.
 \end{engproof}
 
 \begin{engproposition}\label{u_graph}
 Any compositional digraph with size $\kappa$ is isomorphic to quotient digraph of $\bigoplus\limits_{k\in\kappa}\mathcal{U}$.
 \end{engproposition}
 \begin{engproof}
-Let $D$ be compositional digraph with size $\kappa$. Consider a collection $\{\mathcal{U}^{(a,b)}\}_{(a,b)\in A(\mathcal{U})}$ where $\mathcal{U}^{(a,b)}$ is isomorphic to $\mathcal{U}$ for each $(a,b)\in A(\mathcal{U})$. By lemma \ref{lemma6}, for arbitrary $\mathcal{U}^{(a,b)}$ there exist an equivalence relation $\mathcal{R}_{(a,b)}$ and an isomorphism $f_{(a,b)}$ between $\mathcal{U}^{(a,b)}\diagup \mathcal{R}_{(a,b)}$ and subdigraph of $D$. Let $u\in V(\mathcal{U}^{(a,b)})$ and $v\in V({U}^{(c,d)})$ then define $u\mathcal{R}v$ if $f_{(a,b)}([u])=f_{(c,d)}([v])$. Hence $\bigoplus\limits_{k\in\kappa}\mathcal{U}/\mathcal{R}$ is isomorphic to $D$.
+Let $D$ be compositional digraph with size $\kappa$. Consider a collection $\{\mathcal{U}^{(a,b)}\}_{(a,b)\in A(\mathcal{U})}$ where $\mathcal{U}^{(a,b)}$ is isomorphic to $\mathcal{U}$ for each $(a,b)\in A(\mathcal{U})$. By lemma \ref{lemma6}, for arbitrary $\mathcal{U}^{(a,b)}$ there exist an equivalence relation $\mathcal{R}_{(a,b)}$ and an isomorphism $f_{(a,b)}$ between $\mathcal{U}^{(a,b)}\diagup \mathcal{R}_{(a,b)}$ and subdigraph of $D$. For $u\in V(\mathcal{U}^{(a,b)})$ and $v\in V({U}^{(c,d)})$ define the equivalence relation $u\mathcal{R}v$ if $f_{(a,b)}([u]_{(a,b)})=f_{(c,d)}([v]_{(c,d)})$. Hence $\bigoplus\limits_{k\in\kappa}\mathcal{U}/\mathcal{R}$ is isomorphic to $D$.
 \end{engproof}
 
 Corollary \ref{cycle} and Proposition \ref{u_graph} imply the following corollaries.
 
 \begin{engcorollary}
-Any compositional graph has a finite cycle or contains the universal graph as subgraph.
+Any compositional graph has a finite cycle or contains $\mathcal{U}$ as subgraph.
 \end{engcorollary}
 
 \begin{engcorollary}
@@ -485,6 +488,8 @@ Is there a minimal semigroup topology on $\B$ generated by a composition family 
 \bibitem{Doitchinov} D. Doitchinov, Produits de groupes topologiques minimaux, Bull. Sci. Math. (2) 97 (1972), 59–64.
 
 \bibitem{Pavlyk} O. V. Gutik, and K. P. Pavlyk, On topological semigroups of matrix units, Semigroup Forum 71 (2005), no. 3, 389-400.
+
+\bibitem{Gutin} J. Bang-Jensen, G. Gutin, Digraphs - theory, algorithms and applications \textcolor[rgb]{1.00,0.00,0.00}{?????????????}.
 
 \bibitem{Nachbin} L. Nachbin, On strictly minimal topological division rings, Bull. Amer. Math. Soc. 55 (1949), 1128–1136.
 
