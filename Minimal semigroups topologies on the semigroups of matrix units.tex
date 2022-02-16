@@ -55,13 +55,8 @@
 
 \newcommand{\ab}{\lambda}
 \newcommand{\B}{B_{\lambda}}
-\def\Co{\operatorname{Col}}
-\def\Ro{\operatorname{Row}}
-\def\co{\operatorname{col}}
-\def\ro{\operatorname{row}}
-\def\prf{\operatorname{pr_{1}}}
-\def\prs{\operatorname{pr_{2}}}
-\def\fin{\operatorname{fin}}
+\def\prf{\operatorname{proj_{1}}}
+\def\prs{\operatorname{proj_{2}}}
 \def\C{\operatorname{Com}}
 
 
@@ -137,132 +132,136 @@ The concept of minimal topological groups was introduced independently in the ea
 
 Let $\lambda$ be a nonempty set. By $\B$ we denote the set $\lambda\times\lambda\cup\{0\}$ endowed with the following semigroup operation:
 \begin{equation*}
-  (a,b)\cdot (c,d)=\left\{
+  (\alpha,\beta)\cdot (\gamma,\delta)=\left\{
      \begin{array}{ll}
-       (a,d), & \hbox{$b=c$;} \\
-       0, & \hbox{$b\neq c$}
+       (\alpha,\delta), & \hbox{$\beta=\gamma$;} \\
+       0, & \hbox{$\beta\neq\gamma$}
      \end{array}
    \right.
 \end{equation*}
 
-and $(a,b)\cdot 0=0\cdot(a,b)=0\cdot 0=0$, for each $a,b,c,d\in\ab$. The semigroup $\B$ is called the \emph{semigroup of $\lambda\times\lambda$-matrix units}. The semitopological and topological semigroup of matrix units was investigated in \cite{Pavlyk}.
+and $(\alpha,\beta)\cdot 0=0\cdot(\alpha,\beta)=0\cdot 0=0$, for each $\alpha,\beta,\gamma,\delta\in\ab$. The semigroup $\B$ is called the \emph{semigroup of $\lambda\times\lambda$-matrix units}. The semitopological and topological semigroup of matrix units was investigated in \cite{Pavlyk}.
 
 A \emph{directed graph} (or just \emph{digraph}) $D$ consists of a nonempty set $V(D)$ of elements called \emph{vertices} and a set $A(D)$ of ordered pairs of vertices called \emph{arcs}. We call $V(D)$ the \emph{vertex set} and $A(D)$ the \emph{arc set} of $D$. The \emph{order} (\emph{size}) of $D$ is the cardinality of the vertex (arc) set of $D$. For an arc $(u,v)$ the first vertex $u$ is its \emph{tail} and the second vertex $v$ is its \emph{head}. If a tail and a head of arc coincide, then this arc is called a \emph{loop}. The head and tail of an arc are its \emph{end-vertices}. A vertex $v$ is a \emph{source}(\emph{source}) if $v$ is not a head(tail) for any arc. A digraph $H$ is a \emph{subdigraph} of a digraph $D$ if $V(H)\subseteq V(D)$, $A(H)\subseteq A(D)$ and every arc in $A(H)$ has both end-vertices in $V(H)$. If every arc of $A(D)$ with both end-vertices in $V(H)$ is in $A(H)$, we say that $H$ is induced by $X=V(H)$ and call $H$ an induced subdigraph of $D$.
 
 A \emph{walk} in $D$ is an alternating sequence $W=x_{1}a_{1}x_{2}a_{2}x_{3}\ldots x_{k-1}a_{k-1}x_{k}$ of vertices $x_{i}$ and arcs $a_{j}$ from $D$ such that the tail of $a_{i}$ is $x_{i}$ and the head of $a_{i}$ is $x_{i+1}$ for every $i=1,2,\ldots,k-1$. The \emph{length} of a walk is the number of its arcs. When the arcs of $W$ are defined from the context or simply unimportant, we will denote $W$ by $x_{1}x_{2}\ldots x_{k}$. If the vertices of $W$ are distinct, $W$ is a \emph{path}. If the vertices $x_{1},x_{2},\ldots,x_{k-1}$ are distinct and $x_{1}=x_{k}$, $W$ is a \emph{cycle}. A walk (path, cycle) $W$ is a \emph{Hamilton} (or \emph{hamiltonian}) walk (path, cycle) if $W$ contains all vertices of $D$.
 
-Let $\{D_{i}\}_{i\in I}$ be a family of digraphs. The digraph $(\bigsqcup\limits_{i\in I}V(D_{i}),\bigsqcup\limits_{i\in I}A(D_{i}))$ is called \emph{disjoint union} of this family and denoted by $\bigoplus\limits_{i\in I}D_{i}$. If $D$ is a digraph and $\mathcal{R}$ is an equivalence relation on $V(D)$. Then the \emph{quotient digraph} has vertex set $V/\mathcal{R}$ and arc set $\{([a]_{\mathcal{R}},[b]_{\mathcal{R}})\mid (a,b)\in A(D)\}$.
+Let $\{D_{i}\}_{i\in I}$ be a family of digraphs. The digraph $(\bigsqcup\limits_{i\in I}V(D_{i}),\bigsqcup\limits_{i\in I}A(D_{i}))$ is called \emph{disjoint union} of this family and denoted by $\bigoplus\limits_{i\in I}D_{i}$. If $D$ is a digraph and $\mathcal{R}$ is an equivalence relation on $V(D)$. Then the \emph{quotient digraph} $D/\mathcal{R}$ has vertex set $V/\mathcal{R}$ and arc set $\{([a]_{\mathcal{R}},[b]_{\mathcal{R}})\mid (a,b)\in A(D)\}$.
 
 \section{Compositional families}
 
 If $(\B,\tau)$ is a semitopological semigroup, then any nonzero element of $\B$ is an isolated point of $(\B,\tau)$ \cite[Lemma 2]{Pavlyk}. Therefore the following lemma is true.
 
 \begin{englemma}\label{lemma1}
-Let $(\B,\tau)$ be a topological semigroup and $A$ be a closed subset $A$ of $(\B,\tau)$ which doesn't contain $0$. Then any subset of $A$ is closed.
+Let $(\B,\tau)$ be a topological semigroup and $A$ be a closed subset $A$ of $(\B,\tau)$ which doesn't contain the zero $0$. Then any subset of $A$ is closed.
 \end{englemma}
 
-For $A\subseteq\B$ and $\alpha,\beta\in\ab$ we denote
+For $A\subseteq\B\setminus\{0\}$ and $\alpha,\beta\in\ab$ we denote
 \begin{align*}
-    &\qquad _\alpha A_\beta=\{(\beta,\gamma)\mid(\alpha,\gamma)\in A\};\\
-    &\qquad _\beta^\alpha A=\{(\gamma,\beta)\mid(\gamma,\alpha)\in A\};\\
-    &\qquad \prf(A)=\{\alpha\mid(\alpha,\beta)\in A\};\\
-    &\qquad \prs(A)=\{\beta\mid(\alpha,\beta)\in A\}.\\
+    _\alpha A_\beta&=\{(\beta,\gamma)\mid(\alpha,\gamma)\in A\};\\
+    _\beta^\alpha A&=\{(\gamma,\beta)\mid(\gamma,\alpha)\in A\};\\
+    \prf(A)&=\{\alpha\mid(\alpha,\beta)\in A\};\\
+    \prs(A)&=\{\beta\mid(\alpha,\beta)\in A\}.\\
 \end{align*}
 
 \begin{englemma}\label{lemma2}
-Let $\tau$ be a topology on $\B$ and any nonzero element of $\B$ is isolated in $(\B,\tau)$. The semigroup operation is continues on $(\B\times \B)\setminus\{(0,0)\}$ if and only if the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed for every $\alpha,\beta\in\ab$ and every closed subset $A$ of $(\B,\tau)$ which doesn't contain $0$.
+Let $\tau$ be a topology on $\B$ and any nonzero element of $\B$ is isolated in $(\B,\tau)$. The semigroup operation is continuous on $(\B\times\B)\setminus\{(0,0)\}$ if and only if the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed for all $\alpha,\beta\in\ab$ and any closed subset $A$ of $(\B,\tau)$ which doesn't contain the zero $0$.
 \end{englemma}
 \begin{engproof}
-($\Rightarrow$) Let $A$ be a closed subset $A$ of $(\B,\tau)$ which doesn't contain $0$. Lemma \ref{lemma1} implies that the sets $_\alpha A_\alpha$ and $_\alpha^\alpha A$ are closed. By the continuity of operation, the maps $\lambda_{(\alpha,\beta)}:\B\rightarrow \B$ and $\rho_{(\beta,\alpha)}:\B\rightarrow \B$ defined by the formulas $\lambda_{(\alpha,\beta)}(x)=(\alpha,\beta)\cdot x$ and $\rho_{(\beta,\alpha)}(x)=x\cdot(\beta,\alpha)$ are continuous. Therefore the sets
+($\Rightarrow$) Let $A$ be a closed subset of $(\B,\tau)$ which doesn't contain the zero $0$. By the continuity of operation, the maps $\lambda_{(\alpha,\beta)}:\B\rightarrow \B$ and $\rho_{(\beta,\alpha)}:\B\rightarrow \B$ defined by the formulas $\lambda_{(\alpha,\beta)}(x)=(\alpha,\beta)\cdot x$ and $\rho_{(\beta,\alpha)}(x)=x\cdot(\beta,\alpha)$ are continuous. Therefore the sets
 \begin{equation*}
-  _\alpha A_\beta=(\lambda_{(\alpha,\beta)})^{-1}(_\alpha A_\alpha)
+  _\alpha A_\beta=(\lambda_{(\alpha,\beta)})^{-1}(A)
 \end{equation*}
 and
 \begin{equation*}
-  _\beta^\alpha A=(\rho_{(\beta,\alpha)})^{-1}(_\alpha^\alpha A)
+  _\beta^\alpha A=(\rho_{(\beta,\alpha)})^{-1}(A)
 \end{equation*}
 are closed in the topological space $(\B,\tau)$.
 
-($\Leftarrow$) Since every nonzero point of $\B$ is isolated, we need check the continuity of operation only in the cases of $(\alpha,\beta)\cdot 0$ and $0\cdot(\alpha,\beta)$. Let $U$ be a neighborhood of $0$. Denote by $A$ the closed set $\B\setminus U$. Then the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed. Denote by $V$ and $W$ the neighborhoods of zero $\B\setminus {}_\alpha A_\beta$ and $\B\setminus {}_\beta^\alpha A$, respectively. Therefore $\{(\alpha,\beta)\}\cdot V\subseteq U$ and $W\cdot\{(\alpha,\beta)\}\subseteq U$.
+($\Leftarrow$) Since every nonzero point of $\B$ is isolated, we check the continuity of semigroup operation only in the cases of $(\alpha,\beta)\cdot 0$ and $0\cdot(\alpha,\beta)$. Let $U$ be a neighborhood of the zero $0$ and $A=\B\setminus U$. Then the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed. Denote by $V$ and $W$ the neighborhoods of zero $\B\setminus {}_\alpha A_\beta$ and $\B\setminus {}_\beta^\alpha A$, respectively. Simple calculations imply that $\{(\alpha,\beta)\}\cdot V\subseteq U$ and $W\cdot\{(\alpha,\beta)\}\subseteq U$.
 \end{engproof}
 
 Lemma \ref{lemma2} implies the following corollary.
 
 \begin{engcorollary}
-Let $\tau$ be a topology on $\B$. $(\B,\tau)$ is a semitopological semigroup if and only if the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed for every $\alpha,\beta\in\ab$ and every closed subset $A$ of $(\B,\tau)$ which doesn't contain $0$.
+Let $\tau$ be a topology on $\B$. Then $(\B,\tau)$ is a semitopological semigroup if and only if the sets $_\alpha A_\beta$ and $_\beta^\alpha A$ are closed for all $\alpha,\beta\in\ab$ and any closed subset $A$ of $(\B,\tau)$ such that $0\notin A$.
 \end{engcorollary}
 
 \begin{englemma}\label{point_get_out}
 Let $A,B\subseteq\B$ and $(\alpha,\beta)\in\B$. The element $(\alpha,\beta)\notin A\cdot B$ if and only if $\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)=\varnothing$.
 \end{englemma}
 \begin{engproof}
-($\Rightarrow$) Suppose that there exists $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$ then $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Therefore $(\alpha,\gamma)\cdot (\gamma,\beta)=(\alpha,\beta)\in A\cdot B$, a contradiction.
+($\Rightarrow$) Suppose that $(\alpha,\beta)\notin A\cdot B$ and there exists $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$. Then $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Therefore $(\alpha,\gamma)\cdot (\gamma,\beta)=(\alpha,\beta)\in A\cdot B$, a contradiction.
 
 ($\Leftarrow$) Suppose that $\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)=\varnothing$ and $(\alpha,\beta)\in A\cdot B$. Then there exist $\gamma\in\ab$ such that $(\alpha,\gamma)\in A$ and $(\gamma,\beta)\in B$. Hence $\gamma\in\prs(_\alpha A_\alpha)\cap\prf(_\beta^\beta B)$, a contradiction.
 \end{engproof}
 
-We will call elements of the set $\{A\times B\mid A,B\subseteq\B\}$ by rectangles.
+For any nonempty subsets $A$ and $B$ of $\ab$ we shall call $A\times B$ by a \emph{rectangle} of $\B$.
 
 \begin{engdefinition}
-A nonempty family $\mathcal{F}$ of rectangles is called compositional if for $A\times B\in \mathcal{F}$ there exists $C\subseteq\ab$ such that $A\times (\ab\setminus C)\in \mathcal{F}$ and $C\times B\in \mathcal{F}$.
+A nonempty family $\mathcal{F}$ of rectangles of $\B$ is called compositional if for $A\times B\in \mathcal{F}$ there exists $C\subset\ab$ such that $A\times (\ab\setminus C)\in \mathcal{F}$ and $C\times B\in \mathcal{F}$.
 \end{engdefinition}
 
 \begin{englemma}\label{poligon_get_out}
-Let $\tau$ be a semigroup topology on $\B$, then the family of all closed rectangles of $(\B,\tau)$ is compositional.
+If $\tau$ is a semigroup topology on $\B$, then the family of all closed rectangles of $(\B,\tau)$ is compositional.
 \end{englemma}
 \begin{engproof}
-Since every point of $(\B,\tau)$ is closed, the family of all closed rectangles is not empty. Let $A\times B$ be a closed subset of $(\B,\tau)$, then $\B\setminus(A\times B)$ is a neighborhood of $0$. By the continuity of operation at the point $(0,0)$ there exist neighborhoods of zero $U$ and $V$ such that $U\cdot V\subseteq \B\setminus(A\times B)$. Lemma \ref{point_get_out} implies that for each $\alpha\in A$ the neighborhood $V$ doesn't contain the set $\prs(_\alpha V_\alpha)\times B$. Therefore, the neighborhood $V$ doesn't contain the set $(\bigcup\limits_{\alpha\in A}\prs(_\alpha U_\alpha))\times B$. Denote this set by $C$.
+Since every point of $(\B,\tau)$ is a closed subset, the family of all closed rectangles of $\B$ is not empty. Let $A\times B$ be a closed subset of $(\B,\tau)$. Then $\B\setminus(A\times B)$ is a neighborhood of the zero $0$. Since the semigroup operation is continuous at $(0,0)$ there exist neighborhoods of zero $U$ and $V$ such that $U\cdot V\subseteq \B\setminus(A\times B)$. Lemma \ref{point_get_out} implies that for each $\alpha\in A$ the neighborhood $V$ doesn't contain the set $\prs(_\alpha U_\alpha)\times B$. Therefore, the neighborhood $V$ doesn't contain the set $\left(\bigcup\limits_{\alpha\in A}\prs(_\alpha U_\alpha)\right)\times B$. Denote the set $\bigcup\limits_{\alpha\in A}\prs(_\alpha U_\alpha)$ by $C$.
 
-Let $C\neq\ab$. By the De Morgan's laws, $\ab\setminus C=\bigcap\limits_{\alpha\in A}\ab\setminus(\prs(_\alpha U_\alpha))$. The neighborhood $U_{1}$ doesn't contain $A\times(\ab\setminus C)$. Lemma \ref{lemma1} implies that the sets $A\times (\ab\setminus C)\in S$ and $C\times B\in S$ are closed.
+Suppose that $C\neq\ab$. By De Morgan's laws, $\ab\setminus C=\bigcap\limits_{\alpha\in A}\ab\setminus\prs(_\alpha U_\alpha)$. The neighborhood $U$ doesn't contain the set $A\times(\ab\setminus C)$. Lemma \ref{lemma1} implies that the sets $A\times (\ab\setminus C)$ and $C\times B$ are closed.
 
-If $C=\ab$, then, by Lemma \ref{lemma1}, the subset $(\ab\setminus\{\varphi\})\times B$ for some $\varphi\in\ab$ is closed. Lemma \ref{lemma2} implies that subset $A\times\{\varphi\}$ is closed.
+If $C=\ab$, then by Lemma \ref{lemma1} the set $(\ab\setminus\{\varphi\})\times B$ for some $\varphi\in\ab$ is closed. Lemma \ref{lemma2} implies that set $A\times\{\varphi\}$ is closed.
 
-Hence the family of all closed rectangles of $(\B,\tau)$ is a compositional.
+Hence the family of all closed rectangles of $(\B,\tau)$ is compositional.
 \end{engproof}
 
 Let $\mathcal{F}$ be compositional family. Denote
 \begin{equation*}
-C=\mathcal{F}\cup\{_\alpha A_\beta,_\beta^\alpha A\mid A\in \mathcal{F} \text{ and }\alpha,\beta\in\ab\}
+\mathcal{C}=\mathcal{F}\cup\{_\alpha A_\beta,_\beta^\alpha A\mid A\in \mathcal{F} \text{ and }\alpha,\beta\in\ab\}\cup\{\{(\alpha,\beta)\}\mid (\alpha,\beta)\in B_{\lambda}\setminus\{0\}\}
 \end{equation*}
  and
 \begin{equation*}
-P_{\mathcal{F}}=\{\B\setminus B\mid B\in C\}\cup\{\{(\alpha,\beta)\}\mid (\alpha,\beta)\in B_{\lambda}\}\cup\{\varnothing\}.
+P_{\mathcal{F}}=\{\B\setminus B\mid B\in \mathcal{C}\}\cup\{\{(\alpha,\beta)\}\mid (\alpha,\beta)\in B_{\lambda}\setminus\{0\}\}\cup\{\varnothing\}.
 \end{equation*}
 
 \begin{engproposition}\label{proposition2}
-For every compositional family $\mathcal{F}$ topology generated by the subbase $P_{\mathcal{F}}$ is the smallest semigroup topology such that elements of $\mathcal{F}$ are closed.
+For every compositional family $\mathcal{F}$ the topology generated by the subbase $P_{\mathcal{F}}$ is the smallest semigroup topology on $\B$ such that elements of $\mathcal{F}$ are closed.
 \end{engproposition}
 \begin{engproof}
-First we shall show that topology generated by the subbase $P_{\mathcal{F}}$ is semigroup. Since
+Let $\tau$ be the topology generated by $P_{\mathcal{F}}$. Since each nonzero point in $(\B,\tau)$ is clopen subset, the topological space $(\B,\tau)$ is Hausdorff.
 
-\begin{eqnarray*}
-% \nonumber to remove numbering (before each equation)
-  &_\alpha(\bigcup\limits_{i\in I} A_{i})_\beta=\bigcup\limits_{\iota\in I}{}_\alpha(A_{i})_\beta, \\
-  &_\beta^\alpha(\bigcup\limits_{i\in I} A_{i})=\bigcup\limits_{\iota\in I}{}_\beta^\alpha(A_{i}), \\
-  &_\alpha(\bigcap\limits_{i\in I} A_{i})_\beta=\bigcap\limits_{\iota\in I}{}_\alpha(A_{i})_\beta, \\
-  &_\beta^\alpha(\bigcap\limits_{i\in I} A_{i})=\bigcap\limits_{\iota\in I}{}_\beta^\alpha(A_{i}),
-\end{eqnarray*}
+First we shall show that topology generated by the subbase $P_{\mathcal{F}}$ is semigroup. For any $A\in\mathcal{C}$ the sets ${}_\alpha A_\beta$ and ${}_\beta^\alpha A$ are elements of $\mathcal{C}$. Since
+\begin{align*}
+  _\alpha(\bigcup\limits_{i\in I} A_{i})_\beta&=\bigcup\limits_{\iota\in I}{}_\alpha(A_{i})_\beta, \\
+  _\beta^\alpha(\bigcup\limits_{i\in I} A_{i})&=\bigcup\limits_{\iota\in I}{}_\beta^\alpha(A_{i}), \\
+  _\alpha(\bigcap\limits_{i\in I} A_{i})_\beta&=\bigcap\limits_{\iota\in I}{}_\alpha(A_{i})_\beta, \\
+  _\beta^\alpha(\bigcap\limits_{i\in I} A_{i})&=\bigcap\limits_{\iota\in I}{}_\beta^\alpha(A_{i}), \\
+\end{align*}
+for arbitrary family $\{A_i\}_{i\in I}$ subsets of $\B\setminus\{0\}$, by Lemma \ref{lemma2}, the semigroup operation is continuous on $(\B\times \B)\setminus\{(0,0)\}$.
 
-by Lemma \ref{lemma2}, the semigroup operation is continues on $(\B\times \B)\setminus\{(0,0)\}$.
-
-The continuity of the operation in the point $(0,0)$ can be verify only for elements of the subbase. Let $U$ be a neighborhood of $0$ such that $U\in P_{\mathcal{F}}$. Consider possible cases:
+The continuity of the operation in the point $(0,0)$ can be verify only for elements of the subbase. Let $U$ be a neighborhood of $0$ such that $U\in P_{\mathcal{F}}$. Consider possible cases.
 \begin{enumerate}
-  \item $\B\setminus U=A\times B\in \mathcal{F}$, then there exists $C\subset\ab$ such that $A\times(\ab\setminus C)$ and $C\times B$ are closed subsets of $(\B,\tau)$. Thus $\B\setminus A\times(\ab\setminus C)$ and $\B\setminus C\times B$ are neighborhoods of $0$ and
+  \item If $\B\setminus U=A\times B\in \mathcal{F}$, then there exists $C\subset\ab$ such that $A\times(\ab\setminus C)$ and $C\times B$ are closed subsets of $(\B,\tau)$. Thus $\B\setminus(A\times(\ab\setminus C))$ and $\B\setminus(C\times B)$ are neighborhoods of the zero $0$ and
       \begin{equation*}
-        (\B\setminus A\times(\ab\setminus C))\cdot(\B\setminus C\times B)\subseteq\B\setminus A\times B=U.
+        (\B\setminus(A\times(\ab\setminus C)))\cdot(\B\setminus(C\times B))\subseteq\B\setminus(A\times B)=U.
       \end{equation*}
-  \item $\B\setminus U={}_\alpha(A\times B)_\beta=\{\beta\}\times B$ for some $\alpha\in\ab,\beta\in A$ and $A\times B\in \mathcal{F}$. There exists $C\subseteq\ab$ such that the sets $A\times(\B\setminus C)$ and $C\times B$ are closed. Since the set $_\alpha(A\times B)_\beta=\{\beta\}\times(\B\setminus C)$ is closed, the set $(A\cup\{\beta\})\times(\B\setminus C)$ is closed. Then $\B\setminus (A\cup\{\beta\})\times(\B\setminus C)$ and $\B\setminus C\times B$ are neighborhoods of $0$ and
+  \item If $\B\setminus U={}_\alpha(A\times B)_\beta=\{\beta\}\times B$ for some $\alpha\in A,\beta\in\ab$ and $A\times B\in \mathcal{F}$, then there exists $C\subset\ab$ such that the sets $A\times(\ab\setminus C)$ and $C\times B$ are closed in $(\B,\tau)$. The set $_\alpha(A\times(\ab\setminus C))_\beta=\{\beta\}\times(\ab\setminus C)$ is closed in $(\B,\tau)$. Hence $\B\setminus (\{\beta\}\times(\ab\setminus C))$ and $\B\setminus(C\times B)$ are neighborhoods of the zero $0$ and
       \begin{equation*}
-        (\B\setminus (A\cup\{\beta\}))\cdot(\B\setminus C\times B)\subseteq\B\setminus (\{\beta\}\times B)=U.
+        (\B\setminus (\{\beta\}\times(\ab\setminus C)))\cdot(\B\setminus(C\times B))\subseteq\B\setminus(\{\beta\}\times B)=U.
       \end{equation*}
 
-  \item The case $\B\setminus U={}_\beta^\alpha(A\times B)=A\times\{\beta\}$ is proved similarly.
+  \item In the case $\B\setminus U={}_\beta^\alpha(A\times B)=A\times\{\beta\}$ the proof of the continuity of the semigroup operation is similar.
+  
+  \item Suppose that $\B\setminus U=\{(\alpha,\beta)\}$ for some $(\alpha,\beta)\in\B\setminus\{0\}$. Since family $\mathcal{C}$ is not empty, there exists $A\times B\in\mathcal{C}$. Then there exists $C\subset\ab$ such that the sets $A\times(\ab\setminus C)$ and $C\times B$ are closed in $(\B,\tau)$. Fix any $\varphi\in A$ and $\psi\in B$. Therefore the sets ${}_{\varphi} (A\times(\ab\setminus C))_{\alpha}$ and ${}_{\beta}^{\psi}(C\times B)$ are closed in $(\B,\tau)$. Thus $\B\setminus({}_{\varphi} (A\times(\ab\setminus C))_{\alpha})$ and $\B\setminus({}_{\beta}^{\psi}(C\times B))$ are neighborhoods of the zero $0$ and
+      \begin{equation*}
+        (\B\setminus({}_{\varphi} (A\times(\ab\setminus C))_{\alpha}))\cdot(\B\setminus({}_{\beta}^{\psi}(C\times B)))\subseteq\B\setminus\{(\alpha,\beta)\}=U.
+      \end{equation*}
 \end{enumerate}
 
-Let $\tau$ be a topology on $\B$ such elements of $\mathcal{F}$ are closed in the topological space $(\B,\tau)$. Then, by Lemma \ref{lemma2}, elements of $\{_\alpha(A\times B)_\beta,_\beta^\alpha(A\times B)\mid A\in \mathcal{F} \text{ and }\alpha,\beta\in\ab\}$ are closed and, hence their complements are open. Since every nonzero point of $(\B,\tau)$ is isolated, elements of $P_{\mathcal{F}}$ are open in the topological space $(\B,\tau)$.
+Let $\tau$ be a semigroup topology on $\B$ such that elements of $\mathcal{F}$ are closed in the topological space $(\B,\tau)$. Then all nonzero points are closed. By Lemma \ref{lemma2}, elements of $\{_\alpha(A\times B)_\beta,_\beta^\alpha(A\times B)\mid A\in \mathcal{F} \text{ and }\alpha,\beta\in\ab\}$ are closed and, hence their complements are open. Since every nonzero point of $(\B,\tau)$ is isolated, elements of $P_{\mathcal{F}}$ are open in the topological space $(\B,\tau)$.
 \end{engproof}
 
-The topology generated by the subbase $P_{\mathcal{F}}$ will be called topology generated by the compositional family $\mathcal{F}$ and denoted by $\tau_{\mathcal{F}}$.
+The topology generated by the subbase $P_{\mathcal{F}}$ is called \emph{topology generated by the compositional family} $\mathcal{F}$ and denoted by $\tau_{\mathcal{F}}$.
 
 Proposition \ref{proposition2} and Lemma \ref{poligon_get_out} imply the following corollary.
 
@@ -270,92 +269,104 @@ Proposition \ref{proposition2} and Lemma \ref{poligon_get_out} imply the followi
 Every minimal semigroup topology on $\B$ is generated by some compositional family.
 \end{engcorollary}
 
-Let $A$ and $B$ be sets. We will denote
+For arbitrary sets $A$ and $B$ we denote
 \begin{align*}
-    &\qquad A=^{*}B \mbox{~if a set~} A\triangle B \mbox{~is finite~};\\
-    &\qquad A\subseteq^{*}B \mbox{~if a set~} A\setminus B \mbox{~is finite~}.\\
+    &A\subseteq^{*}B \mbox{~if a set~} A\setminus B \mbox{~is finite};\\
+    &A=^{*}B \mbox{~if a set~} A\triangle B \mbox{~is finite}.\\
 \end{align*}
 
-Note that there are semigroup topologies such that not generated by compositional families. For example, a topology generated by the base $\{\{(\alpha,\alpha)\mid\alpha\in A\}\cup\{0\}\mid A=^{*}\ab\}\cup\{\{(\alpha,\beta)\}\mid\alpha,\beta\in \ab\}$.
+\begin{engremark}
+Note that there are semigroup topologies on $\B$ such that not generated by compositional families. In particular, a topology generated by the base
+\begin{equation*}
+  \mathcal{B}=\{\{(\alpha,\alpha)\mid\alpha\in A\}\cup\{0\}\mid A=^{*}\ab\}\cup\{\{(\alpha,\beta)\}\mid\alpha,\beta\in \ab\}.
+\end{equation*}
+\end{engremark}
 
-Observe that a semigroup topology can be generated by distinct compositional families. Let $\tau$ be a semigroup topology generated by some compositional family on $\B$. By $\C(\tau)$ denote the set of all compositional families such that generate the topology $\tau$.
+\begin{engremark}
+Observe that a semigroup topology on $\B$ can be generated by distinct compositional families. For example, for arbitrary sets $A\subset\ab$ and $B\subset A$ the following compositional families $\mathcal{F}_1=\{A\times(\ab\setminus A)\}$ and $\mathcal{F}_2=\{A\times(\ab\setminus A),B\times(\ab\setminus A)\}$ generate the same semigroup topology on $\B$.
+\end{engremark}
+
+Let $\tau$ be a semigroup topology on $\B$ generated by some compositional family. By $\C(\tau)$ denote the set of all compositional families such that generate the topology $\tau$.
 
 \begin{engproposition}\label{proposition3}
 Let $\tau_{1}$ and $\tau_{2}$ be semigroup topologies on $\B$ generated by compositional families. A topology $\tau_{1}$ is weaker than a topology $\tau_{2}$ if and only if there exist compositional families $\mathcal{F}_{1}\in\C(\tau_{1})$ and $\mathcal{F}_{2}\in\C(\tau_{2})$ such that $\mathcal{F}_{1}\subseteq \mathcal{F}_{2}$.
 \end{engproposition}
 \begin{engproof}
-($\Rightarrow$) If $\mathcal{F}_{1}\in\C(\tau_{1})$ and $\mathcal{F}\in\C(\tau_{2})$, then the family $\mathcal{F}_{2}=\mathcal{F}_{1}\cup \mathcal{F}$ is compositional and $\mathcal{F}_{1}\subseteq \mathcal{F}_{2}$. Since the topology $\tau_{1}$ is weaker than the topology $\tau_{2}$, any element of $\mathcal{F}_{1}$ is a closed set in the topology $\tau_{2}$. Therefore, the family $\mathcal{F}_{2}$ generate the topology $\tau_{2}$.
+($\Rightarrow$) If $\mathcal{F}_{1}\in\C(\tau_{1})$ and $\mathcal{F}\in\C(\tau_{2})$, then the family $\mathcal{F}_{2}=\mathcal{F}_{1}\cup \mathcal{F}$ is compositional and $\mathcal{F}_{1}\subseteq \mathcal{F}_{2}$. Since the topology $\tau_{1}$ is weaker than the topology $\tau_{2}$, any element of $\mathcal{F}_{1}$ is a closed set in $(\B,\tau_{2})$. Therefore, the family $\mathcal{F}_{2}$ generate the topology $\tau_{2}$.
 
-($\Leftarrow$) Since $\mathcal{F}_{1}\subseteq \mathcal{F}_{2}$, every closed set in the topology $\tau_{1}$ is closed in the topology $\tau_{2}$. Hence the topology $\tau_{1}$ is weaker than the topology $\tau_{2}$.
+($\Leftarrow$) Since $\mathcal{F}_{1}\subseteq \mathcal{F}_{2}$, every closed set in $(\B,\tau_{1})$ is closed in $(\B,\tau_{2})$. Then the topology $\tau_{1}$ is weaker than the topology $\tau_{2}$.
 \end{engproof}
 
-
 \begin{englemma}\label{lemma5}
-Let $\tau$ be semigroup topology on $\B$. If the set $A\times B$ is closed in the topological space $(\B,\tau)$ and $C=^{*}A$, $D=^{*}B$, then the set $C\times D$ is closed in the topological space $(\B,\tau)$.
+Let $\tau$ be a semigroup topology on $\B$. If the set $A\times B$ is closed in $(\B,\tau)$ and $C=^{*}A$, $D=^{*}B$, then the set $C\times D$ is closed in $(\B,\tau)$.
 \end{englemma}
 \begin{engproof}
-By Lemma \ref{lemma1}, the set $(A\cap C)\times (B\cap D)$ is closed in the topological space $(\B,\tau)$. Then, by Lemma \ref{lemma2}, the sets $(A\cap C)\times \{\alpha\}$ and $\{\beta\}\times(B\cap D)$ are closed for all $\alpha\in D\setminus B, \beta\in C\setminus A$. Since the sets $D\setminus B$ and $C\setminus A$ are finite, the sets $(A\cap C)\times (D\setminus B)$ and $(C\setminus A)\times(B\cap D)$ are closed. The set $(C\setminus A)\times(D\setminus B)$ is finite and therefore closed. Hence the set $C\times D$ is closed in the topological space $(\B,\tau)$.
+By Lemma \ref{lemma1}, the set $(A\cap C)\times (B\cap D)$ is closed in $(\B,\tau)$. Lemma \ref{lemma2} implies that the sets $(A\cap C)\times \{\alpha\}$ and $\{\beta\}\times(B\cap D)$ are closed for all $\alpha\in D\setminus B, \beta\in C\setminus A$. Since the sets $D\setminus B$ and $C\setminus A$ are finite, the sets $(A\cap C)\times (D\setminus B)$ and $(C\setminus A)\times(B\cap D)$ are closed. The set $(C\setminus A)\times(D\setminus B)$ is finite and therefore closed. Hence the set $C\times D$ is closed in $(\B,\tau)$.
 \end{engproof}
 
 \section{Compositional digraphs}
 
-A compositional family $\mathcal{F}$ can be represented in the form of a digraph with loops $D(\mathcal{F})$. The vertexes of digraph is the set
+A compositional family $\mathcal{F}$ can be represented in the form of a digraph with loops $D(\mathcal{F})$. The vertices of the digraph is the set
 \begin{equation*}
-  V(D(\mathcal{F}))=\{A\mid A\times(\ab\setminus B)\in\mathcal{F}\text{ or }B\times(\ab\setminus A)\in \mathcal{F}\}
+  V(D(\mathcal{F}))=\{A\mid A\times(\ab\setminus B)\in\mathcal{F}\mbox{~or~}B\times(\ab\setminus A)\in \mathcal{F}\}
 \end{equation*}
 and $(A,B)\in A(D(\mathcal{F}))$ if $A\times(\ab\setminus B)\in\mathcal{F}$.
 
 \begin{engdefinition}
-A digraph with loops $D=(V,A)$ is called compositional if for all $(a,b)\in A$ there exists $c\in V$ such that $(a,c)\in A$ and $(c,b)\in A$.
+A digraph with loops $D=(V,A)$ is called compositional if for all $(u,v)\in A$ there exists $w\in V$ such that $(u,w)\in A$ and $(w,v)\in A$.
 \end{engdefinition}
 
 \begin{engproposition}
-For any compositional family $\mathcal{F}$ the digraph $D(\mathcal{F})$ is compositional and any compositional digraph $D=(V,A)$ such that $V\subseteq \mathcal{P}(\ab)$ determines some compositional family.
+For any compositional family $\mathcal{F}$ the digraph $D(\mathcal{F})$ is compositional and any compositional digraph $D$ such that vertices of $D$ are subsets of $\ab$ determines some compositional family.
 \end{engproposition}
 
 \begin{engexample}
-The digraph $D$ with $V(D)=\{a,b,c,d\}$ and
-\begin{equation*}
-  A(D)=\{(a,b),(b,a),(b,c),(c,b),(c,d),(d,c),(a,d),(d,a),(a,c),(c,a)\}
-\end{equation*}
- is compositional.
-\newline
+The following digraphs are compositional.
+
+\begin{figure}[!h]
+\centering
 \begin{tikzpicture}[
-node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
+node/.style={circle,line width=1,draw,minimum size=1.5em,inner sep=1pt}
 ]
 
-    \node[node] (1) at (0, 0) {a};
-    \node[node] (2) at (2, 2)  {b};
-    \node[node] (3) at (4, 0) {c};
-    \node[node] (4) at (2, -2) {d};
+    \node[node] (1) at (0, 0) {};
+    \node[node] (2) at (2, 2)  {};
+    \node[node] (3) at (4, 0) {};
+    \node[node] (4) at (2, -2) {};
+    
+    \node[node] (5) at (6, 0) {};
+    \node[node] (6) at (10, 0) {};
 
-    \draw[->] (1) to[bend left] (2);
-    \draw[->] (2) to[bend left] (1);
-    \draw[->] (3) to[bend left] (1);
-    \draw[->] (1) to[bend left] (3);
-    \draw[->] (3) to[bend left] (2);
-    \draw[->] (2) to[bend left] (3);
-    \draw[->] (3) to[bend left] (4);
-    \draw[->] (4) to[bend left] (3);
-    \draw[->] (4) to[bend left] (1);
-    \draw[->] (1) to[bend left] (4);
+    \draw[-latex,line width=1] (1) to[bend left=15] (2);
+    \draw[-latex,line width=1] (2) to[bend left=15] (1);
+    \draw[-latex,line width=1] (3) to[bend left=15] (1);
+    \draw[-latex,line width=1] (1) to[bend left=15] (3);
+    \draw[-latex,line width=1] (3) to[bend left=15] (2);
+    \draw[-latex,line width=1] (2) to[bend left=15] (3);
+    \draw[-latex,line width=1] (3) to[bend left=15] (4);
+    \draw[-latex,line width=1] (4) to[bend left=15] (3);
+    \draw[-latex,line width=1] (4) to[bend left=15] (1);
+    \draw[-latex,line width=1] (1) to[bend left=15] (4);
+    
+    \draw[-latex,line width=1] (5) to (6);
+    \draw[-latex,line width=1] (6) to[out=120,in=60,looseness=10] (6);
 
 
 \end{tikzpicture}
-
+\end{figure}
 \end{engexample}
 
 \begin{engexample}
 Let $\mathbb{Z}[\frac{1}{2}]$ be the set of all dyadic rationals in $[0,1]$. The digraph $\mathcal{U}$ with $V(\mathcal{U})=\mathbb{Z}[\frac{1}{2}]$ and
 \begin{equation*}
-  A(\mathcal{U})\{(v,u)\mid v=\frac{k}{2^n} \mbox{~and~} u=v+\frac{1}{m} \mbox{~for some~} m\geq n\}
+  A(\mathcal{U})=\left\{(v,u)\mid v=\frac{k}{2^n} \mbox{~and~} u=v+\frac{1}{2^m} \mbox{~for some~} m\geq n\right\}
 \end{equation*}
-is compositional. Indeed, if $(u,v)$ is an arc of $\mathcal{U}$, then $(u,\frac{u+v}{2})$ and $(\frac{u+v}{2},v)$ are arcs of $\mathcal{U}$. 
-
-By $\mathcal{U}_i$ denoted the subdigraph induced by $V(\mathcal{U}_i)=\{u\in\mathbb{Z}[\frac{1}{2}]\mid u=\frac{k}{2^n}\mbox{~for~} n\leq i\}$.
+is compositional. Indeed, if $(u,v)$ is an arc of $\mathcal{U}$, then $(u,\frac{u+v}{2})$ and $(\frac{u+v}{2},v)$ are arcs of $\mathcal{U}$.
 \newline
+\begin{figure}[!h]
+\centering
 \begin{tikzpicture}[
-node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
+node/.style={circle,line width=1,draw,minimum size=1.5em,inner sep=1pt}
 ]
 
     \node[node] (1) at (0, 0) {$0$};
@@ -368,31 +379,34 @@ node/.style={circle,fill=white!60,draw,minimum size=1.5em,inner sep=1pt}
     \node[node] (8) at (5, 3) {$\frac{5}{8}$};
     \node[node] (9) at (7, 3) {$\frac{7}{8}$};
 
-    \draw[->] (1) to (2);
-    \draw[->] (1) to (3);
-    \draw[->] (3) to (2);
-    \draw[->] (1) to (4);
-    \draw[->] (4) to (3);
-    \draw[->] (3) to (5);
-    \draw[->] (5) to (2);
-    \draw[->] (1) to (6);
-    \draw[->] (6) to (4);
-    \draw[->] (4) to (7);
-    \draw[->] (7) to (3);
-    \draw[->] (3) to (8);
-    \draw[->] (8) to (5);
-    \draw[->] (5) to (9);
-    \draw[->] (9) to (2);
+    \draw[-latex,line width=1] (1) to (2);
+    \draw[-latex,line width=1] (1) to (3);
+    \draw[-latex,line width=1] (3) to (2);
+    \draw[-latex,line width=1] (1) to (4);
+    \draw[-latex,line width=1] (4) to (3);
+    \draw[-latex,line width=1] (3) to (5);
+    \draw[-latex,line width=1] (5) to (2);
+    \draw[-latex,line width=1] (1) to (6);
+    \draw[-latex,line width=1] (6) to (4);
+    \draw[-latex,line width=1] (4) to (7);
+    \draw[-latex,line width=1] (7) to (3);
+    \draw[-latex,line width=1] (3) to (8);
+    \draw[-latex,line width=1] (8) to (5);
+    \draw[-latex,line width=1] (5) to (9);
+    \draw[-latex,line width=1] (9) to (2);
 
 
 \end{tikzpicture}
+\end{figure}
+
+For each $i\in\mathbb{N}$ by $\mathcal{U}_i$ denoted the subdigraph of $\mathcal{U}$ induced by $V(\mathcal{U}_i)=\{u\in\mathbb{Z}[\frac{1}{2}]\mid u=\frac{k}{2^n}\mbox{~for~} n\leq i\}$.
 \end{engexample}
 
 \begin{engproposition}\label{path}
 There exists a hamiltonian path in $\mathcal{U}_{i}$ for each $i\in\mathbb{N}$.
 \end{engproposition}
 \begin{engproof}
-Consider the sequence of vertices $\frac{1}{2^i},\frac{2}{2^i},\frac{3}{2^i},\ldots,\frac{2^i-1}{2^i},\frac{2^i}{2^i}$. Observe that $v_{i+1}-v_i=\frac{1}{2^i}$. Thus $(v_i,v_{i+1})$ is an arc of $\mathcal{U}_{i}$ and hence this sequence is a path. Since the path contains all vertices of $\mathcal{U}_{i}$, this is a hamiltonian path.
+Consider the sequence of vertices $W=0,\frac{1}{2^i},\frac{2}{2^i},\frac{3}{2^i},\ldots,\frac{2^i-1}{2^i},1$. Observe that $v_{j+1}-v_j=\frac{1}{2^i}$ for arbitrary $v_j, v_{j+1}\in W$. Thus $(v_j,v_{j+1})$ is an arc of $\mathcal{U}_{i}$ and hence this sequence is a path. Since the path contains all vertices of $\mathcal{U}_{i}$, $W$ is a hamiltonian path.
 \end{engproof}
 
 Proposition \ref{path} implies the following corollary.
@@ -402,43 +416,49 @@ Arbitrary quotient digraph of $\mathcal{U}$ has a finite cycle.
 \end{engcorollary}
 
 \begin{engproposition}
-Let $\{D_{i}\}_{i\in I}$ be a collection of compositional digraphs and $D=(\bigsqcup\limits_{i\in I}V(D_{i}),\bigsqcup\limits_{i\in I}A(D_{i}))$. Arbitrary quotient digraph of $D$ is compositional.
+Let $\{D_{i}\}_{i\in I}$ be a collection of compositional digraphs. Arbitrary quotient digraph of $D=\bigoplus\limits_{i\in I}D_{i}$ is compositional.
 \end{engproposition}
 \begin{engproof}
-Let $\mathcal{R}$ be an equivalence relation on $\bigsqcup\limits_{i\in I}V_{\alpha}$ and $([a],[b])\in V(D/\mathcal{R})$. Then $(a,b)\in \bigsqcup\limits_{i\in I}A_{i}$ and hence $(a,b)\in A_{j}$ for some $j\in I$. Therefore, there exist $(a,c),(c,b)\in V(D_{j})$. Thus $([a],[c]),([c],[b])\in V(D/\mathcal{R})$.
+Let $\mathcal{R}$ be an equivalence relation on $V(D)$ and $([u],[v])\in A(D/\mathcal{R})$. Then there exist $u',v'\in V(D)$ such that $(v',u')\in A(V)$. Thus $(v',u')$ is an arc of $V_j$ for some $j\in I$. Since digraph $V_j$ is compositional, there exist arcs $(u',w)$ and $(w,v')$ of $V_j$. Hence $([u'],[w]),([w],[v'])\in A(D/\mathcal{R})$.
 \end{engproof}
 
 \begin{englemma}\label{lemma6}
-Let $D$ be a digraph and $(a,b)$ be a arc of $D$. Then there exists an equivalence relation $\mathcal{R}$ on $V(\mathcal{U})$ such that $D/\mathcal{R}$ is isomorphic to a subdigraph of $D$ which contains $(a,b)$.
+Let $D$ be a compositional digraph and $(u,v)$ be an arc of $D$. Then there exists an equivalence relation $\mathcal{R}$ on $V(\mathcal{U})$ such that $\mathcal{U}/\mathcal{R}$ is isomorphic to a subdigraph of $D$ which contains $(u,v)$.
 \end{englemma}
 \begin{engproof}
-Construct by induction equivalence classes of the relation $\mathcal{R}$. For each $v\in V(D)$ define $[v]=\varnothing$. Let $(u,w)$ is an arc of $\mathcal{U}_{0}$. Add vertex $u$ to $[a]$ and vertex $w$ to $[b]$. Suppose that all vertexes of $\mathcal{U}_{i}$ are added to equivalence classes. Take arbitrary vertex $v\in V(\mathcal{U}_{i+1})\setminus V(\mathcal{U}_{i})$. There exist two arcs $(u,v),(v,w)\in A(\mathcal{U}_{i+1})\setminus A(\mathcal{U}_{i})$ and $u\in [x]$, $w\in [y]$. Since the digraph $D$ is compositional, there exist arcs $(x,z),(z,y)\in A(D)$. Then add the vertex $v$ to $[z]$.
+For each $w\in V(D)$ define a set $C_w$ of vertices of $\mathcal{U}$ by induction. For $i=0$ add vertex $0$ to $C_u$ and vertex $1$ to $C_v$.
+
+Suppose that all vertexes of $\mathcal{U}_{n}$ are added to sets $\{C_w\}_{w\in V(D)}$. Take arbitrary vertex $y\in V(\mathcal{U}_{n+1})\setminus V(\mathcal{U}_{n})$. There exist two arcs $(x,y),(y,z)\in A(\mathcal{U}_{n+1})\setminus A(\mathcal{U}_{n})$ and $x\in C_r$, $z\in C_t$ for some $r,t\in V(D)$. Since the digraph $D$ is compositional, there exist arcs $(r,s),(s,t)\in A(D)$. Then add the vertex $y$ to $C_s$.
+
+Nonempty elements of $\{C_w\}_{w\in V(D)}$ provide a partition of $V(\mathcal{U})$ which determines an equivalence relation $\mathcal{R}$. Let $H$ be an subdigraph of $D$ induced by $\{w\in V(D)\mid C_w\neq\varnothing\}$. Then the map $f:H\rightarrow\mathcal{U}/\mathcal{R}$ defined by the formula $f(w)=C_w$ is an isomorphism.
 \end{engproof}
 
 \begin{engproposition}\label{u_graph}
 Any compositional digraph with size $\kappa$ is isomorphic to quotient digraph of $\bigoplus\limits_{k\in\kappa}\mathcal{U}$.
 \end{engproposition}
 \begin{engproof}
-Let $D$ be compositional digraph with size $\kappa$. Consider a collection $\{\mathcal{U}^{(a,b)}\}_{(a,b)\in A(\mathcal{U})}$ where $\mathcal{U}^{(a,b)}$ is isomorphic to $\mathcal{U}$ for each $(a,b)\in A(\mathcal{U})$. By lemma \ref{lemma6}, for arbitrary $\mathcal{U}^{(a,b)}$ there exist an equivalence relation $\mathcal{R}_{(a,b)}$ and an isomorphism $f_{(a,b)}$ between $\mathcal{U}^{(a,b)}\diagup \mathcal{R}_{(a,b)}$ and subdigraph of $D$. For $u\in V(\mathcal{U}^{(a,b)})$ and $v\in V({U}^{(c,d)})$ define the equivalence relation $u\mathcal{R}v$ if $f_{(a,b)}([u]_{(a,b)})=f_{(c,d)}([v]_{(c,d)})$. Hence $\bigoplus\limits_{k\in\kappa}\mathcal{U}/\mathcal{R}$ is isomorphic to $D$.
+Let $D$ be compositional digraph with size $\kappa$. Consider a collection $\{\mathcal{U}^{(u,v)}\}_{(u,v)\in A(D)}$ where $\mathcal{U}^{(u,v)}$ is a digraph isomorphic to $\mathcal{U}$ for each $(u,v)\in A(D)$. By lemma \ref{lemma6}, for arbitrary $\mathcal{U}^{(u,v)}$ there exist an equivalence relation $\mathcal{R}_{(u,v)}$ and an isomorphism $f_{(u,v)}$ between $\mathcal{U}^{(u,v)}\diagup \mathcal{R}_{(u,v)}$ and subdigraph $H$ of $D$ which contains $(u,v)$.
+
+Define the equivalence relation $\mathcal{R}$ on $\bigoplus\limits_{k\in\kappa}\mathcal{U}$ in the next way $u\mathcal{R}v$ if $f_{(s,t)}([u]_{\mathcal{R}_{(s,t)}})=f_{(x,y)}([v]_{\mathcal{R}_{(x,y)}})$ for $u\in V(\mathcal{U}^{(s,t)})$ and $v\in V(\mathcal{U}^{(x,y)})$. Now define the map $f:\left(\bigoplus\limits_{k\in\kappa}\mathcal{U}\right)/\mathcal{R}\rightarrow D$ defined by the formula $f([w])=f_{(s,t)}([w]_{\mathcal{R}_{(s,t)}})$ where $w\in\mathcal{U}^{(s,t)}$. Then $f$ is an isomorphism.
 \end{engproof}
 
 Corollary \ref{cycle} and Proposition \ref{u_graph} imply the following corollaries.
 
 \begin{engcorollary}
-Any compositional graph has a finite cycle or contains $\mathcal{U}$ as subgraph.
+Any compositional digraph has a finite cycle or contains $\mathcal{U}$ as subdigraph.
 \end{engcorollary}
 
 \begin{engcorollary}
-Any finite compositional graph has a finite cycle.
+Any finite compositional digraph has a finite cycle.
 \end{engcorollary}
 
 \section{Main result}
 
 \begin{engproposition}\label{min_topology}
-Let $A$ be subset of $\ab$, then a topology $\tau$ generated by the compositional family $\{A\times(\ab\setminus A)\}$ is minimal.
+If $A\subset\ab$, then a topology $\tau$ generated by the compositional family $\{A\times(\ab\setminus A)\}$ is minimal.
 \end{engproposition}
 \begin{engproof}
-Let $\tau_{1}$ be a weaker topology than the topology $\tau$ and $B\times(\ab\setminus C)$ be a closed set in the topological space $(\B,\tau_{1})$. By Lemma \ref{poligon_get_out}, there exists $D\subseteq\ab$ such that the sets $B\times(\ab\setminus D)$ and $D\times(\ab\setminus C)$ are closed in the topological space $(\B,\tau_{1})$. Since $\tau_{1}$ is weaker than $\tau$, $D\subseteq^{*}A$ and $(\ab\setminus D)\subseteq^{*}(\ab\setminus A)$. Therefore $D=^{*}A$. Again, by Lemma \ref{poligon_get_out}, there exists $F\subseteq\ab$ such that the sets $D\times(\ab\setminus F)$ and $F\times(\ab\setminus C)$ are closed in the topological space $(\B,\tau_{1})$. Hence $F\subseteq^{*}A$ and $(\ab\setminus F)\subseteq^{*}(\ab\setminus A)$ and then $F=^{*}A$. By Lemma \ref{lemma5}, the set $(A\times(\ab\setminus A)$ is closed in the topological space $(\B,\tau_{1})$.
+Let $\tau_{1}$ be a weaker topology than the topology $\tau$ and $B\times(\ab\setminus C)$ be a closed set in $(\B,\tau_{1})$. By Lemma \ref{poligon_get_out}, there exists $D\subseteq\ab$ such that the sets $B\times(\ab\setminus D)$ and $D\times(\ab\setminus C)$ are closed in $(\B,\tau_{1})$. Since $\tau_{1}$ is weaker than $\tau$, $D\subseteq^{*}A$ and $(\ab\setminus D)\subseteq^{*}(\ab\setminus A)$. Therefore $D=^{*}A$. Again, by Lemma \ref{poligon_get_out}, there exists $F\subseteq\ab$ such that the sets $D\times(\ab\setminus F)$ and $F\times(\ab\setminus C)$ are closed in $(\B,\tau_{1})$. Hence $F\subseteq^{*}A$ and $(\ab\setminus F)\subseteq^{*}(\ab\setminus A)$ and then $F=^{*}A$. By Lemma \ref{lemma5}, the set $(A\times(\ab\setminus A)$ is closed in the topological space $(\B,\tau_{1})$.
 \end{engproof}
 
 Proposition \ref{min_topology} generalizes \cite[Theorem 5]{Pavlyk}.
@@ -489,7 +509,7 @@ Is there a minimal semigroup topology on $\B$ generated by a composition family 
 
 \bibitem{Pavlyk} O. V. Gutik, and K. P. Pavlyk, On topological semigroups of matrix units, Semigroup Forum 71 (2005), no. 3, 389-400.
 
-\bibitem{Gutin} J. Bang-Jensen, G. Gutin, Digraphs - theory, algorithms and applications \textcolor[rgb]{1.00,0.00,0.00}{?????????????}.
+\bibitem{Gutin}  J. Bang-Jensen and G. Gutin. Digraphs: Theory, Algorithms and Applications. Springer-Verlag, London, 2nd edition, 2009.
 
 \bibitem{Nachbin} L. Nachbin, On strictly minimal topological division rings, Bull. Amer. Math. Soc. 55 (1949), 1128–1136.
 
